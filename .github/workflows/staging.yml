@@ -1,0 +1,48 @@
+name: Deploy to staging environment
+
+on:
+  # Trigger the workflow every time you push to the `main` branch
+  # Using a different branch name? Replace `main` with your branch’s name
+  push:
+    branches: [ staging ]
+  # Allows you to run this workflow manually from the Actions tab on GitHub.
+  workflow_dispatch:
+
+# Allow this job to clone the repo and create a page deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout your repository using git
+        uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm install
+      - name: Build the website
+        run: npm run build
+      - uses: actions/upload-artifact@master
+        with:
+          name: website-files
+          path: './dist/'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: staging
+    steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: website-files
+          path: './dist/'
+      - name: Deploy to staging environment
+        uses: dswistowski/surge-sh-action@v1
+        with:
+          domain: 'systemctf.surge.sh'
+          project: './dist/'
+          login: ${{ secrets.surge_login }}
+          token: ${{ secrets.surge_token }}
