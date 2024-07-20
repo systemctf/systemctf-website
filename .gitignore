@@ -1,0 +1,12 @@
+# Output
+dist/
+
+# Astro folder
+.astro/
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.production
