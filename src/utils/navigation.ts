@@ -1,8 +1,8 @@
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Presentation", url: "/presentation" },
-  { name: "Blog", url: "/blog" },
+  { name: "Home", url: "/", id: "home" },
+  { name: "Presentation", url: "/presentation", id: "presentation" },
+  { name: "Blog", url: "/blog", id: "blog" },
 ];
 
 // An object of links for social icons
