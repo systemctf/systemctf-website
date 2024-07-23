@@ -7,7 +7,6 @@ import compressor from "astro-compressor";
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
   site: "https://systemctf.fr",
-  base: "",
   image: {
     domains: ["images.unsplash.com"],
   },
