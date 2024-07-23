@@ -86,7 +86,7 @@ const homeUrl = Astro.currentLocale === "fr" ? "/fr" : "/";
       >
         <!-- Navigation links -->
         {strings.navBarLinks.map(link => (
-          <NavLink url={link.url} name={link.name} />
+          <NavLink url={link.url} id={link.id} name={link.name} />
         ))}
 
         <LanguagePicker />
