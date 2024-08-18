@@ -28,14 +28,15 @@ If URL is '/' (home page), assign ID as 'home'
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     let url = window.location.pathname;
-    let navId;
+    let navId, uniUrl;
 
     console.log(url)
 
-    if (url === "" || url === "/" || url === "/fr") {
+    if (url === "" || url === "/" || url === "/fr/") {
       navId = "home";
     } else {
-      navId = url.replace("/fr/", "").replace("/", "");
+      uniUrl = url.replace("/fr/", "");
+      navId = uniUrl.replace("/", "");
     }
 
     console.log(navId)
