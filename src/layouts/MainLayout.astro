@@ -1,8 +1,8 @@
 ---
 // Importing necessary components
 import Meta from "@components/Meta.astro";
-import Navbar from "@components/sections/navbar&footer/Navbar.astro";
-import FooterSection from "@components/sections/navbar&footer/FooterSection.astro";
+import Navbar from "@/components/sections/Navbar.astro";
+import Footer from "@/components/sections/Footer.astro";
 import { SITE } from "@data/constants";
 
 // Setting expected props
@@ -56,7 +56,7 @@ We set the language of the page to English and add classes for scrollbar and scr
         <slot />
       </main>
     </div>
-    <FooterSection />
+    <Footer />
     <style>
       /* CSS rules for the page scrollbar */
       .scrollbar-hide::-webkit-scrollbar {
