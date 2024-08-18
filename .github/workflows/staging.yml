@@ -40,9 +40,6 @@ jobs:
           name: website-files
           path: './dist/'
       - name: Deploy to staging environment
-        uses: dswistowski/surge-sh-action@066512515e350ddb238d737163c2bb00d28b9761
-        with:
-          domain: 'systemctf.surge.sh'
-          project: './dist/'
-          login: ${{ secrets.surge_login }}
-          token: ${{ secrets.surge_token }}
+        run: |
+          npm install --global surge
+          surge  './dist/' 'systemctf.surge.sh' --token ${{secrets.surge_token}}
