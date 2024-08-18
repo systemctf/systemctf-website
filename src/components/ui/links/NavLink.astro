@@ -30,11 +30,15 @@ If URL is '/' (home page), assign ID as 'home'
     let url = window.location.pathname;
     let navId;
 
-    if (url === "/" || url === "/fr" ) {
+    console.log(url)
+
+    if (url === "" || url === "/" || url === "/fr") {
       navId = "home";
     } else {
       navId = url.replace("/fr/", "").replace("/", "");
     }
+
+    console.log(navId)
 
     let nav = document.getElementById(navId);
 
